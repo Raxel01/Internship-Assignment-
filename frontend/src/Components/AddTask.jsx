@@ -1,14 +1,19 @@
 import React, { useContext, useEffect } from 'react'
 import { StatesContext } from '../hooks/MainHooks'
 import { Image } from 'phosphor-react'
+import toast, { Toaster } from 'react-hot-toast';
 
+const InputTitle = () =>{
+    return (
+        <input className='text-DarkGreen h-[4rem] w-[20rem] sm:w-[90%] rounded-md bg-CosGray border-none text-xl outline-none px-5'
+        type="text"
+        placeholder='Insert Task title ...'
+        onChange={(e) => setTitle(e.target.value)}/>
+    )
+}
 const AddTask = () => {
-    const {setTitle, setDescription, setTaskImage, taskImage} = useContext(StatesContext)
+    const {setTitle, title, setDescription,Description, setTaskImage, taskImage} = useContext(StatesContext)
 
-    useEffect(() =>{
-        console.log(taskImage)
-    }, [taskImage])
-    
     const handleImageSelect = (event) => {
         try{
           const file = event.target.files[0];
@@ -23,19 +28,23 @@ const AddTask = () => {
             setTaskImage(null);
           }
         } catch(e){
-        //   ErrorToast('can\'t Load Image');
+            toast(' Error While Importing Image', {
+                className: 'bg-orange',
+                icon: '👏',
+                iconTheme: {
+                  primary: '#000',
+                  secondary: '#fff',
+                },
+              })
         }
-        };
+    };
 
     return (
         <div className=' grid grid-rows-addtaskRows'>
 
         {/* input text */}
         <div className=' flex items-center justify-center'>
-            <input className='text-DarkGreen h-[4rem] w-[20rem] sm:w-[90%] rounded-md bg-CosGray border-none text-xl outline-none px-5'
-                   type="text"
-                   placeholder='Insert Task title ...'
-                   onChange={(e) => setTitle(e.target.value)}/>
+            <InputTitle/>
         </div>
 
         <div  className=' grid grid-cols-imgDescription items-center justify-center gab-1'>
@@ -60,6 +69,7 @@ const AddTask = () => {
                            onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
+                <Toaster/>
         </div>
     </div>
   )
