@@ -25,7 +25,7 @@ const PalleteColor = () => {
     setTaskImage("")
   }
   const navigate = useNavigate();
-
+  // post request added
   const handleDataSend = async () =>{
     if (title && Description && taskImage){
       const requestBody = new FormData()
