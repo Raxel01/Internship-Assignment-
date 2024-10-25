@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 from .Serializers import taskSerializer
 import json
 
-
+# View Implemented
 class userTaskView(APIView):
     
     def get(self, request):
