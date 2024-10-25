@@ -3,7 +3,7 @@ from django.db import models
 # from django.db.models import Q
 # Create your models here
 
-
+# Models Implemented
 class UserTasks(models.Model):
     taskTitle   = models.CharField(max_length=50,null=False, blank=False)
     description = models.TextField(null=False,blank=False)
