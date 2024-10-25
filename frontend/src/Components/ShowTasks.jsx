@@ -1,181 +1,52 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
+import { StatesContext } from '../hooks/MainHooks'
 
-let tasks = [
-  {
-    id: 1,
-    taskImage : '',
-    taskTitle : 'Your task 1',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 2',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 3,
-    taskImage : '',
-    taskTitle : 'Your task 3',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  },
-  {
-    id: 2,
-    taskImage : '',
-    taskTitle : 'Your task 4',
-    taskDescription : 'Lorem ipsum jkhsdjkgh jksd jksdh hdjksgh kdsjk hds ghkdsgj '
-  }
-]
 
-const ShowTasks = () => {
+const tasks = null
+
+const TaskDisplayer = ({Task}) => {
   return (
-    <div className='flex items-center justify-center '>
-      {
-        tasks ? <div className='w-[20rem] sm:w-[90%] h-[38rem] flex flex-col justify-start overflow-auto bg-yellow-400'> 
-        {
-          tasks.map(elem =>{
-            return <div className=' rounded-lg w-[20rem] h-[6rem] mt-2 bg-orange'>
+  <div className='rounded-lg w-full min-h-[7rem] md:min-h-[9rem] flex gap-4  bg-CosGray'>
 
-             </div>
-          })
+  </div>
+  )
 
-        }
-          </div> : <div className='w-full h-full flex items-center justify-center'>
-            Empty ANIMATION
-          </div>
-      }
+
+}
+const ShowTasks = () => {
+  // const API_URL = 'http://localhost:8000/api/Tasks/userTasks/'
+  
+  // useEffect(()=>{
+  //   const fetchTasks = async () =>{
+  //     try{
+  //       const response = await axios.get(API_URL)
+  //     }catch(error){
+  //       if (error.response){
+  //         console.log(error.response)
+  //         toast(`${error.response.status} : ${error.response.statusText} ❌`)
+  //       }
+  //       else if (error.request){
+  //         toast(`${error.request} : no response`)
+  //       }
+  //       else
+  //         toast('Error while setting up the request')
+  //     }
+
+  //   }
+  //   fetchTasks()
+
+  // }, [])
+
+  return (
+    <div className='custom-scrollbar rounded-lg self-center w-full h-[37rem]  flex flex-col gap-2 items-center justify-start overflow-y-auto'>
+      {tasks ? (
+        tasks.map((elem, index) => <TaskDisplayer key={index} Task={elem}/> )
+      ) : (
+        <div className='w-full h-full flex items-center justify-center'>
+          Empty ANIMATION
+        </div>
+      )}
     </div>
   )
 }

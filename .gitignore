@@ -1,0 +1,6 @@
+pythonenv/
+*.sql
+media/
+__pycache__/
+.env*
+node_modules/

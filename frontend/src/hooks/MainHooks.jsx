@@ -3,9 +3,9 @@ import { createContext, useState, useEffect } from "react";
 export const StatesContext = createContext();
 
 export const StatesContextProvider = ({children}) =>{
-    const [title, setTitle] = useState(null)
-    const [Description, setDescription] = useState(null)
-    const [taskImage, setTaskImage] = useState(null)
+    const [title, setTitle] = useState("")
+    const [Description, setDescription] = useState("")
+    const [taskImage, setTaskImage] = useState("")
     
     const states = {
         title           : title,

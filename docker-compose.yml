@@ -1,0 +1,45 @@
+services:
+  frontend:
+    build: ./frontend/
+    image: frontimg:assignment
+    container_name: frontend
+    ports:
+      - "4000:5173"
+    restart: always
+    depends_on:
+      - backend
+    volumes:
+    - ./frontend:/front
+    - /front/node_modules
+
+  backend:
+    build: ./backend/
+    command: >
+      bash -c "./MAKE_MIGRATIONS.sh && 
+      python manage.py runserver 0.0.0.0:8000"
+    image: backimg:assignment
+    container_name: backend
+    ports:
+      - "8000:8000"
+    restart: always
+    env_file:
+      - ./backend/.env.database
+    depends_on:
+      - postgres
+    volumes:
+    - ./backend:/back
+
+
+  postgres:
+    image: postgres:14.2
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    env_file:
+      - ./backend/.env.database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

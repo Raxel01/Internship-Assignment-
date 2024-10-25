@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .custom-scrollbar {
+    scrollbar-width: 1rem;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0.6rem;
+    backdrop-filter: blur(20px);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background:transparent;
+    margin-block: 8rem;
+
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #365E32;
+    border-radius: 5rem;
+    margin: 1rem;
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
