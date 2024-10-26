@@ -6,6 +6,7 @@ export const StatesContextProvider = ({children}) =>{
     const [title, setTitle] = useState("")
     const [Description, setDescription] = useState("")
     const [taskImage, setTaskImage] = useState("")
+    const [savedTasks, setsavedTasks] = useState(null)
     
     const states = {
         title           : title,
@@ -13,7 +14,9 @@ export const StatesContextProvider = ({children}) =>{
         Description     : Description,
         setDescription  : setDescription,
         taskImage       : taskImage,
-        setTaskImage    : setTaskImage
+        setTaskImage    : setTaskImage,
+        savedTasks      : savedTasks,
+        setsavedTasks   : setsavedTasks
     }
 
     return (

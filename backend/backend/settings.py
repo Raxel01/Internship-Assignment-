@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 import os
 
 
+
 load_dotenv('../.env.database')
 # load_dotenv('../.env')
 load_dotenv()
@@ -42,8 +43,8 @@ ALLOWED_HOSTS = ['http://localhost:8000',
 # Application definition
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "media/"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -56,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'Tasks'
+    'Tasks',
 ]
 
 

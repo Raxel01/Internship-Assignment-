@@ -16,7 +16,8 @@ export default {
         "DarkGreen" : '#365E32',
         'LightGreen' : '#000E0B',
         'LightYellow' : '#E7D98D',
-        'LightOrange' : '#FD9B63'
+        'LightOrange' : '#FD9B63',
+        'lightGreen': '#7FE706'
       },
       backgroundImage: {
         'bodyBackground': "url('/src/assets/appBackground.png')",
