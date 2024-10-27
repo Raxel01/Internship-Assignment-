@@ -7,7 +7,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .models import UserTasks
 from rest_framework.views import APIView
-from .Serializers import taskSerializer
+from .Serializers import taskSerializer, deleteSerializer
 import json
 
 # View Implemented : done
@@ -18,10 +18,9 @@ class userTaskView(APIView):
         allTaskSerializer = taskSerializer(allTasks, many=True)
         return Response(allTaskSerializer.data, status=status.HTTP_200_OK)
     def delete(self, request):
-        print('You Try to delete')
-        # toBedeleted = UserTasks.objects.get(id=taskId)
-        # toBedeleted.delete()
-        pass
+        toBedeleted = UserTasks.objects.get(id=request.data.get('id'))
+        toBedeleted.delete()
+        return Response(None, status.HTTP_204_NO_CONTENT)
     def post(self, request):
        serializer = taskSerializer(data=request.data)
        serializer.is_valid(raise_exception=True)

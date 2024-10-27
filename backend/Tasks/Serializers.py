@@ -6,3 +6,8 @@ class taskSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTasks
         fields = ['id', 'taskTitle', 'description', 'taskImage', 'TaskStatus']
+        
+class deleteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTasks
+        fields = ['id']

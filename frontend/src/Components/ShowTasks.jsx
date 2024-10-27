@@ -4,6 +4,9 @@ import { StatesContext } from '../hooks/MainHooks'
 import toast, { Toaster } from 'react-hot-toast';
 import {Trash} from 'phosphor-react'
 
+const API_URL = 'http://localhost:8000/api/Tasks/userTasks/'
+
+
 const getBackColor = (status) =>{
   if (status === 'STARTED')
     return 'LightOrange'
@@ -14,8 +17,22 @@ const getBackColor = (status) =>{
 }
 
 const TaskDisplayer = ({Task}) => {
-  console.log(Task)
+  const handleTaskRemove = async () =>{
+    try {
+      const requestData = new FormData()
+      requestData.append('id', Task.id)
 
+      const response = await axios.delete(API_URL, {data: requestData, content_type :'application/json'})
+      toast(`Task : ${Task.taskTitle} is removed 🗑️ ${response.status}`)
+    }catch (error){
+      if (error.response)
+        toast(`${error.response.statusText} ❌: ${error.response.status}`)
+      else if (error.request)
+        toast(`error no request : ${error.request}`)
+      else
+        toast(`error While setting up the request`)
+    }
+  }
 
   return (
   <div className='rounded-lg w-full min-h-[7rem] md:min-h-[9rem] flex gap-4 items-center justify-center bg-CosGray'>
@@ -38,7 +55,7 @@ const TaskDisplayer = ({Task}) => {
     </div>
 
     <div className='flex items-center justify-center'>
-      <Trash size={32} color='#FC4747'/>
+      <Trash onClick={handleTaskRemove} size={32} color='#FC4747'/>
     </div>
     
     </div>
@@ -50,7 +67,6 @@ const TaskDisplayer = ({Task}) => {
 }
 const ShowTasks = () => {
   const {savedTasks, setsavedTasks} = useContext(StatesContext)
-  const API_URL = 'http://localhost:8000/api/Tasks/userTasks/'
   
   useEffect(()=>{
     const fetchTasks = async () =>{
@@ -78,10 +94,11 @@ const ShowTasks = () => {
       {savedTasks ? (
         savedTasks.map((elem, index) => <TaskDisplayer key={index} Task={elem}/> )
       ) : (
-        <div className='w-full h-full flex items-center justify-center'>
+        <div className='w-full h-full flex items-center justify-center bg-orange'>
           Empty ANIMATION
         </div>
       )}
+      <Toaster/>
     </div>
   )
 }
