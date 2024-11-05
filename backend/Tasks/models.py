@@ -11,6 +11,9 @@ class UserTasks(models.Model):
     TaskStatus  = models.CharField(max_length=12,  default='STARTED')
     created_at  = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return f' {self.taskTitle} -- with id =: {self.id}'
+    
     class Meta:
         ordering = ['-created_at']
 

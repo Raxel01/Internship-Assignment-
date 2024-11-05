@@ -27,10 +27,8 @@ class userTaskView(APIView):
        return Response(serializer.data, status=status.HTTP_201_CREATED)
        
     def patch(self, request):
-        print('You Try to patch so change partial data')
-        print(request)
-        # toBeModifiyed = UserTasks.objects.get(id=taskId)
-        # toBeModifiyed.TaskStatus = 
-        # b5.name = "New name"
-        # b5.save()
-        return Response({'ok', 'ok'}, status=status.HTTP_200_OK)
+        toBeModifiyed = UserTasks.objects.get(id=request.data.get('id'))
+        if toBeModifiyed.TaskStatus != request.data.get('newStatus'):
+            toBeModifiyed.TaskStatus =  request.data.get('newStatus')
+            toBeModifiyed.save()
+        return Response({'Id', request.data.get('id')}, status=status.HTTP_200_OK)
