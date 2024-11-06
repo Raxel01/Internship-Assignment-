@@ -16,8 +16,7 @@ Detailed Task Tracking: Users can view comprehensive details for each task, incl
 Seamless Task Updates: Youdo's intuitive interface makes it easy for users to update task statuses, edit task details, and remove tasks as needed. These updates are immediately reflected across the application, ensuring that the user's task list is always up-to-date.
 Responsive and Mobile-Friendly: Youdo is designed to be fully responsive, allowing users to access and manage their tasks on-the-go, whether they're using a desktop computer, tablet, or smartphone. This flexibility ensures that users can stay productive and organized, even when they're away from their primary workstation.
 
-Technologies Used arr :
- 
-<img src='./src/assets/Full responsive.png' alt='Img for my full responsive app'>
+<p align="center"><img  alt="Gif code" src="./frontend/src/assets/Fullresponsive.png" height="350" width="1000"></p>
+
 
 
