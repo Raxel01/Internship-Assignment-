@@ -4,7 +4,9 @@
         * notification         : React Hottoast <br/>
         * Animation && Icons : Lotties animation + phosphor-icons <br/>
         * Backend            : Django/Django-Rest-Framework <br/>
-        * Database             : Relationel Database: PostgreSQL <br/> 
+        * Database             : Relationel Database: PostgreSQL <br/>
+        * Containarisation : Docker/Docker-compose <br/>
+        * Project Manipulation : Makefile/up/clean/fclean/stop/start/down <br/>
 <br/>
 <h1> #YouDo App [FullStack Project] </h1> <br/>
 YoudoAPP is a Full stack project where I try to enhance  either my frontend or backend skills . <br/>
